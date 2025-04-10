@@ -41,7 +41,7 @@ function Main({ dishes }) {
         <img src={logo} alt="the react logo in place of a chef" height={100} />
         <ul>
           {dishes.map((dish) => (
-            <li key={dish.i} style={{ listStyleType: "none" }}>
+            <li key={dish.id} style={{ listStyleType: "none" }}>
               {dish.title}
             </li>
           ))}

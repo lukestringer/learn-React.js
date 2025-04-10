@@ -9,14 +9,28 @@ function Header({ name, year }) {
   );
 }
 
+const items = [
+  "Macaroni and cheese",
+  "Salmon and potatoes",
+  "Spagheettiii and the meat a ballasss",
+];
+
+function Main({ dishes }) {
+  return (
+    <ul>
+      {dishes.map((dish) => (
+        <li style={{ listStyleType: "none" }}>{dish}</li>
+      ))}
+    </ul> //each child in list should have a unique "key" prop
+  );
+}
+
 function App() {
   return (
     <div>
       {" "}
       <Header name="Steve" year={new Date().getFullYear()} />
-      <main>
-        <h2>We make good thingsa</h2>
-      </main>
+      <Main dishes={items} />
     </div>
   );
 }

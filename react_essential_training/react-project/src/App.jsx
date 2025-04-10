@@ -1,4 +1,5 @@
 import "./App.css";
+import logo from "./assets/react.svg";
 
 function Header({ name, year }) {
   return (
@@ -23,24 +24,27 @@ const dishObjects = items.map((dish, i) => ({
 
 function Main({ dishes }) {
   return (
-    <ul>
-      {/* incorrect solution is to generate them when accessing, rather than beforehand (whole point is to avoid errors when new dishes are added)
-      {dishes.map((dish, i) => (
-        <li key={i} style={{ listStyleType: "none" }}>
-      */}
-      {dishes.map((dish) => (
-        <li key={dish.i} style={{ listStyleType: "none" }}>
-          {dish.title}
-        </li>
-      ))}
-    </ul>
+    <main>
+      <img
+        src="https://github.com/lukestringer.png"
+        alt="blini kot"
+        height={169}
+      />
+      <img src={logo} alt="the react logo in place of a chef" height={100} />
+      <ul>
+        {dishes.map((dish) => (
+          <li key={dish.i} style={{ listStyleType: "none" }}>
+            {dish.title}
+          </li>
+        ))}
+      </ul>
+    </main>
   );
 }
 
 function App() {
   return (
     <div>
-      {" "}
       <Header name="Steve" year={new Date().getFullYear()} />
       <Main dishes={dishObjects} />
     </div>

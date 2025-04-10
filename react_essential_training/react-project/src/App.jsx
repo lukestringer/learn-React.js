@@ -1,10 +1,10 @@
 import "./App.css";
 
-function Header(props) {
+function Header({ name, year }) {
   return (
     <header>
-      <h1>Potato Kitchen! owner: {props.name}</h1>
-      <p>Copyright {props.year}</p>
+      <h1>Potato Kitchen! owner: {name}</h1>
+      <p>Copyright {year}</p>
     </header>
   );
 }

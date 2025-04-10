@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import "./App.css";
 import logo from "./assets/react.svg";
 
@@ -53,11 +53,27 @@ function Main({ dishes }) {
 }
 
 function App() {
+  //const what = useState();
+  //console.log(what);//an array containing a function and a state property.
+  //so we have a property and a function which can update it (the state property)
+  const [status, setStatus] = useState("open."); //initial state/status set to "Open"
+
   return (
-    <div>
+    //replaced div with fragment
+    <>
+      <h1>Restaurant is currently {status}</h1>
+      <button
+        onClick={() =>
+          setStatus(
+            "on fire! Why would you set my restaurant on fire!!🔥🔥🔥🚒 I will have to close!"
+          )
+        }
+      >
+        Close Restaurant!
+      </button>
       <Header name="Steve" year={new Date().getFullYear()} />
       <Main dishes={dishObjects} />
-    </div>
+    </>
   );
 }
 

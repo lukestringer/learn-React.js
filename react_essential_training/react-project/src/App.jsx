@@ -1,10 +1,23 @@
-import './App.css'
+import "./App.css";
 
-function App() {
-
+function Header() {
   return (
-    <h1>Hello React!</h1>
+    <header>
+      <h1>Potato Kitchen!</h1>
+    </header>
   );
 }
 
-export default App
+function App() {
+  return (
+    <div>
+      {" "}
+      <Header />
+      <main>
+        <h2>We make good thingsa</h2>
+      </main>
+    </div>
+  );
+}
+
+export default App;

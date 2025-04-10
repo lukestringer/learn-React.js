@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import logo from "./assets/react.svg";
 
@@ -24,21 +25,30 @@ const dishObjects = items.map((dish, i) => ({
 
 function Main({ dishes }) {
   return (
-    <main>
-      <img
-        src="https://github.com/lukestringer.png"
-        alt="blini kot"
-        height={169}
-      />
-      <img src={logo} alt="the react logo in place of a chef" height={100} />
-      <ul>
-        {dishes.map((dish) => (
-          <li key={dish.i} style={{ listStyleType: "none" }}>
-            {dish.title}
-          </li>
-        ))}
-      </ul>
-    </main>
+    <>
+      {/* <React.Fragment> */}
+      {/* The <> is equivalent to <React.Fragment> */}
+      <h2>
+        This was just added so we could show that we don't need to junk up the
+        DOM with a bunch of extra divs.
+      </h2>
+      <main>
+        <img
+          src="https://github.com/lukestringer.png"
+          alt="blini kot"
+          height={169}
+        />
+        <img src={logo} alt="the react logo in place of a chef" height={100} />
+        <ul>
+          {dishes.map((dish) => (
+            <li key={dish.i} style={{ listStyleType: "none" }}>
+              {dish.title}
+            </li>
+          ))}
+        </ul>
+      </main>
+      {/* </React.Fragment> */}
+    </>
   );
 }
 

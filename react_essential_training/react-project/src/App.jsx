@@ -23,14 +23,12 @@ const dishObjects = items.map((dish, i) => ({
   title: dish,
 }));
 
-function Main({ dishes }) {
+function Main({ dishes, openStatus, onStatus }) {
   return (
     <>
-      {/* <React.Fragment> */}
-      {/* The <> is equivalent to <React.Fragment> */}
+      <button onClick={() => onStatus(true)}>Open the restaurant!!</button>
       <h2>
-        This was just added so we could show that we don't need to junk up the
-        DOM with a bunch of extra divs.
+        Welcome to the beautiful {openStatus ? "open" : "closed"} restaurant.
       </h2>
       <main>
         <img
@@ -47,13 +45,12 @@ function Main({ dishes }) {
           ))}
         </ul>
       </main>
-      {/* </React.Fragment> */}
     </>
   );
 }
 
 function App() {
-  const [status, setStatus] = useState(true);
+  const [status, setStatus] = useState(true); //it's good practice to lift state up so it's as high as possible in the application tree
 
   return (
     <>
@@ -62,7 +59,7 @@ function App() {
         {status ? "Close" : "Open"} Restaurant!
       </button>
       <Header name="Steve" year={new Date().getFullYear()} />
-      <Main dishes={dishObjects} />
+      <Main dishes={dishObjects} openStatus={status} onStatus={setStatus} />
     </>
   );
 }

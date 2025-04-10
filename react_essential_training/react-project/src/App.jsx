@@ -15,13 +15,25 @@ const items = [
   "Spagheettiii and the meat a ballasss",
 ];
 
+//adding key to each list item to make sure it
+const dishObjects = items.map((dish, i) => ({
+  id: i,
+  title: dish,
+}));
+
 function Main({ dishes }) {
   return (
     <ul>
+      {/* incorrect solution is to generate them when accessing, rather than beforehand (whole point is to avoid errors when new dishes are added)
+      {dishes.map((dish, i) => (
+        <li key={i} style={{ listStyleType: "none" }}>
+      */}
       {dishes.map((dish) => (
-        <li style={{ listStyleType: "none" }}>{dish}</li>
+        <li key={dish.i} style={{ listStyleType: "none" }}>
+          {dish.title}
+        </li>
       ))}
-    </ul> //each child in list should have a unique "key" prop
+    </ul>
   );
 }
 
@@ -30,7 +42,7 @@ function App() {
     <div>
       {" "}
       <Header name="Steve" year={new Date().getFullYear()} />
-      <Main dishes={items} />
+      <Main dishes={dishObjects} />
     </div>
   );
 }

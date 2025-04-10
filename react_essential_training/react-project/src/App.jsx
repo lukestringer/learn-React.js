@@ -1,9 +1,9 @@
 import "./App.css";
 
-function Header() {
+function Header(props) {
   return (
     <header>
-      <h1>Potato Kitchen!</h1>
+      <h1>Potato Kitchen! owner: {props.name}</h1>
     </header>
   );
 }
@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       {" "}
-      <Header />
+      <Header name="Steve" />
       <main>
         <h2>We make good thingsa</h2>
       </main>

@@ -53,23 +53,13 @@ function Main({ dishes }) {
 }
 
 function App() {
-  //const what = useState();
-  //console.log(what);//an array containing a function and a state property.
-  //so we have a property and a function which can update it (the state property)
-  const [status, setStatus] = useState("open."); //initial state/status set to "Open"
+  const [status, setStatus] = useState(true);
 
   return (
-    //replaced div with fragment
     <>
-      <h1>Restaurant is currently {status}</h1>
-      <button
-        onClick={() =>
-          setStatus(
-            "on fire! Why would you set my restaurant on fire!!🔥🔥🔥🚒 I will have to close!"
-          )
-        }
-      >
-        Close Restaurant!
+      <h1>Restaurant is currently {status ? "open" : "closed"}.</h1>
+      <button onClick={() => setStatus(!status)}>
+        {status ? "Close" : "Open"} Restaurant!
       </button>
       <Header name="Steve" year={new Date().getFullYear()} />
       <Main dishes={dishObjects} />

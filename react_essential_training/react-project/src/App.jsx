@@ -1,4 +1,4 @@
-import { useState, useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import "./App.css";
 import logo from "./assets/react.svg";
 
@@ -50,8 +50,13 @@ function Main({ dishes, openStatus, onStatus }) {
 }
 
 function App() {
-  //  const [status, setStatus] = useState(true); //it's good practice to lift state up so it's as high as possible in the application tree
   const [status, toggleStatus] = useReducer((status) => !status, true);
+
+  useEffect(() => {
+    console.log(`The restaurant is ${status ? "open" : "closed"}.`);
+  }, []); //[] optional second arg. list of dependencies. function will be called AGAIN (always runs on first render) when those dependencies update, e.g. status in this case
+  //^ runs whenever the statue value changes
+
   return (
     <>
       <h1>Restaurant is currently {status ? "open" : "closed"}.</h1>

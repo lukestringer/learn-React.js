@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import "./App.css";
 import logo from "./assets/react.svg";
 
@@ -26,7 +26,7 @@ const dishObjects = items.map((dish, i) => ({
 function Main({ dishes, openStatus, onStatus }) {
   return (
     <>
-      <button onClick={() => onStatus(true)}>Open the restaurant!!</button>
+      <button onClick={() => onStatus()}>Open the restaurant!!</button>
       <h2>
         Welcome to the beautiful {openStatus ? "open" : "closed"} restaurant.
       </h2>
@@ -50,16 +50,16 @@ function Main({ dishes, openStatus, onStatus }) {
 }
 
 function App() {
-  const [status, setStatus] = useState(true); //it's good practice to lift state up so it's as high as possible in the application tree
-
+  //  const [status, setStatus] = useState(true); //it's good practice to lift state up so it's as high as possible in the application tree
+  const [status, toggleStatus] = useReducer((status) => !status, true);
   return (
     <>
       <h1>Restaurant is currently {status ? "open" : "closed"}.</h1>
-      <button onClick={() => setStatus(!status)}>
+      <button onClick={toggleStatus}>
         {status ? "Close" : "Open"} Restaurant!
       </button>
       <Header name="Steve" year={new Date().getFullYear()} />
-      <Main dishes={dishObjects} openStatus={status} onStatus={setStatus} />
+      <Main dishes={dishObjects} openStatus={status} onStatus={toggleStatus} />
     </>
   );
 }

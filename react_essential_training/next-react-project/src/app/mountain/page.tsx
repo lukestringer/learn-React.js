@@ -27,59 +27,13 @@ export default async function Page() {
         </thead>
         <tbody>
           {/* All the type info added with Quick Fix (problem because this is TypeScript not JS) */}
-          {data.map(
-            (lift: {
-              id: Key | null | undefined;
-              name:
-                | string
-                | number
-                | bigint
-                | boolean
-                | ReactElement<unknown, string | JSXElementConstructor<any>>
-                | Iterable<ReactNode>
-                | ReactPortal
-                | Promise<
-                    | string
-                    | number
-                    | bigint
-                    | boolean
-                    | ReactPortal
-                    | ReactElement<unknown, string | JSXElementConstructor<any>>
-                    | Iterable<ReactNode>
-                    | null
-                    | undefined
-                  >
-                | null
-                | undefined;
-              status:
-                | string
-                | number
-                | bigint
-                | boolean
-                | ReactElement<unknown, string | JSXElementConstructor<any>>
-                | Iterable<ReactNode>
-                | ReactPortal
-                | Promise<
-                    | string
-                    | number
-                    | bigint
-                    | boolean
-                    | ReactPortal
-                    | ReactElement<unknown, string | JSXElementConstructor<any>>
-                    | Iterable<ReactNode>
-                    | null
-                    | undefined
-                  >
-                | null
-                | undefined;
-            }) => (
-              <tr key={lift.id}>
-                {" "}
-                <td>{lift.name}</td>
-                <td>{lift.status}</td>
-              </tr>
-            )
-          )}
+          {data.map((lift: { id: Key; name: string; status: string }) => (
+            <tr key={lift.id}>
+              {" "}
+              <td>{lift.name}</td>
+              <td>{lift.status}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </main>

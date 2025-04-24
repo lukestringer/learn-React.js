@@ -1,8 +1,17 @@
 export default function Page() {
+  async function submitForm(formData: FormData) {
+    "use server"; //server side function which can be called from client side code
+    const formFields = {
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+    console.log(formFields); //NB: this will show in the terminal as it's a server action
+    return formFields;
+  }
   return (
     <main className="max-w-md mx-auto p-6 bg-white shadow-md rounded-md text-black">
       <h1 className="text-2xl font-bold text-center mb-6">Contact Us:</h1>
-      <form action="" className="space-y-4">
+      <form action={submitForm} className="space-y-4">
         <div>
           <label
             htmlFor="email"

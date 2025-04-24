@@ -29,7 +29,6 @@ export default async function Page() {
           {/* All the type info added with Quick Fix (problem because this is TypeScript not JS) */}
           {data.map((lift: { id: Key; name: string; status: string }) => (
             <tr key={lift.id}>
-              {" "}
               <td>{lift.name}</td>
               <td>{lift.status}</td>
             </tr>
